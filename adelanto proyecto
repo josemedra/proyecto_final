@@ -5,7 +5,6 @@
 Write your code in this editor and press "Run" button to compile and execute it.
 
 *******************************************************************************/
-
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -155,13 +154,15 @@ void rebotes()
     cout<<"altura alcanzada despues del primer rebote:"<<h1<<endl;
     cout<<"el valor de la velocidad antes de chocar la segunda vez con la tierra es:"<<vf2<<endl;
     
-    for(int i=h;i>0.01;i--){
+    ht=h;
+    while(ht>0.1){
         
         
         ht=(pow(e,2*n)*h);
-        x=ht;
+        
         n++;
-        cout<<"el valor de la altura es:"<<n<<endl;
+        cout<<"el valor de la altura es:"<<ht<<endl;
+        cout<<"rebotes:"<<n<<endl;
     
     }
     
