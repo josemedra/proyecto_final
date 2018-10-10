@@ -63,7 +63,7 @@ int main() {
 /*********************************************************************************************************************/
 void parabolico(){
 	
-	float vo,a,t,x1,yo;
+	float vo,a,t,x1,yo,vx,vy;
 	
  cout<<"ud se encuentra en movimiento parabolico "<<endl;
 
@@ -78,17 +78,23 @@ void parabolico(){
  
  // t=(2*vo*sin((a*pi/180)))/9.8; "ecuacion para hallar el tiempo"
   //double y1=vo*sin((a*pi/180))*tam-0.5*9.8*tam*tam;
-  
-  int x=t;
+  cout<<"las diferentes posiciones en el tiempo son:"<<endl;
+  float x=t;
   t=0;
   for(int i=0;i<=x;i++){
   x1= (vo*(cos((a*pi/180))*t));
-  float tam=vo*sin((a*pi/180))/9.8;
- double y1=vo*sin((a*pi/180))*t-0.5*9.8*t*t;
+ float y1=vo*sin((a*pi/180))*t-0.5*9.8*t*t;
+ vx=vo*cos(a*pi/180);
+ vy=(vo*sin(a*pi/180)-g*t);
  
-  cout<<"el tiempo maximo es: "<<t<<endl;
-  cout<<"la altura  que alcanza el proyectil el el tiempo elegido es:"<<y1<<endl;
-  cout<<"la maxima distancia en el eje x alcanzada por el proyectil es :"<<x1<<endl;
+ 
+  cout<<"en el  tiempo"<<t<<endl;
+  cout<<"la altura  que alcanza el proyectil el el tiempo t="<<t<<" es "<<y1<<endl;
+  cout<<"la distancia en el eje x alcanzada por el proyectil en el tiempo t="<<t<<" es "<<x1<<endl;
+  cout<<"la velocidad  en el eje x alcanzada en el tiempo t="<<t<<" es "<<vx<<endl;
+  cout<<"la velocidad en el eje y alcanzada en el tiempo  t="<<t<<" es "<<vy<<endl;
+  
+  
   t++;
   }
  
