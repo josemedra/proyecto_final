@@ -1,0 +1,245 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+#define pi 3.14159265
+#define g 9.8
+#define e 0.7
+using namespace std;
+ void parabolico();
+ void colision();
+ void rebotes();
+ void Friccion();
+
+
+int x;
+
+
+
+int main() {
+	
+	for(;;){
+		
+		cout<<"ingrese la opcion para el calculo que desea efectual"<<endl;
+		cout<<"1. mov parabolico"<<endl;
+		cout<<"2. colisiones elasticas"<<endl;
+		cout<<"3. rebotes"<<endl;
+		cout<<"4. Friccion en Medio viscoso"<<endl;
+		 cin>>x;
+		 
+		 if (x==1){
+		 	
+		 	parabolico();
+		 }
+		 if (x==2){
+		 	
+		 	colision();
+		 }
+		 if(x==3){
+		     
+		     rebotes();
+		 }
+		 if(x==4){
+		     
+		     Friccion();
+		 }
+		 
+		 
+	}
+		system("cls");	
+	
+	
+	return 0;
+}
+
+/*********************************************************************************************************************/
+void parabolico(){
+	
+	float vo,a,t,x1,yo;
+	
+ cout<<"ud se encuentra en movimiento parabolico "<<endl;
+
+ cout<<"ingrese la velocidad inicial ";
+ cin>>vo;
+ cout<<"ingrese el angulo de disparo ";
+ cin>>a;
+ cout<<"ingrese la posicion inicial ";
+ cin>>yo;
+ cout<<"ingrese el tiempo ";
+ cin>>t;
+ 
+ // t=(2*vo*sin((a*pi/180)))/9.8; "ecuacion para hallar el tiempo"
+  //double y1=vo*sin((a*pi/180))*tam-0.5*9.8*tam*tam;
+  
+  int x=t;
+  t=0;
+  for(int i=0;i<=x;i++){
+  x1= (vo*(cos((a*pi/180))*t));
+  float tam=vo*sin((a*pi/180))/9.8;
+ double y1=vo*sin((a*pi/180))*t-0.5*9.8*t*t;
+ 
+  cout<<"el tiempo maximo es: "<<t<<endl;
+  cout<<"la altura  que alcanza el proyectil el el tiempo elegido es:"<<y1<<endl;
+  cout<<"la maxima distancia en el eje x alcanzada por el proyectil es :"<<x1<<endl;
+  t++;
+  }
+ 
+
+
+
+	
+  
+  
+  system("pause");
+  
+  
+}
+/******************************************************************************************************************************/
+void colision()
+{
+    float m1,m2,vo1,vo2,vf1,vf2;
+
+	cout<<"usted esta en colision"<<endl;
+	cout<<"ingrese los valores que desea analizar:"<<endl;
+	cout<<"ingrese la masa 1:"<<endl;
+	cin>>m1;
+	cout<<"ingrese la masa 2:"<<endl;
+	cin>>m2;
+	cout<<"ingrese los valores de la velociadad inicial  de la particula 1:"<<endl;
+	cin>>vo1;
+	cout<<"ingrese los valores de la velociadad inicial de la particula  2:"<<endl;
+	cin>>vo2;
+	
+	if(vo2==0){
+	    
+	    
+	    vf1=(m1-m2)/(m1+m2)*vo1;  //+(2*m2/(m1+m2));
+	    cout<<"la velocidad final es:"<<vf1<<endl;
+	    
+	    vf2=((2*m1)/(m1+m2))*vo1;
+	    cout<<"la velocidad final es:"<<vf2<<endl;
+	    
+	}
+	
+	else {
+	    
+	    vf1=((m1-m2)/(m1+m2))*vo1+((2*(m2))/(m1+m2))*vo2;
+	    
+	    vf2= ((2*(m1))/(m1+m2))*vo1+((m2-m1)/(m1+m2))*vo2;
+	    
+	    cout<<"la velocidad final de la particula 1 es:"<<vf1<<endl;
+	    cout<<"la velocidad final de las particula 2  es:"<<vf2<<endl;
+	    
+	    
+	    
+	    
+	}
+	
+	system ("pause");
+}
+/********************************************************************************************/
+
+void rebotes()
+{
+    float m1,h,t,vf1,h1,vf2,h2,v,ht,x;
+    int n=1;
+    cout<<"usted esta en rebotes"<<endl;
+    cout<<"ingrese los valores de la masa de la particula:"<<endl;
+    cin>>m1;
+    cout<<"ingrese los valores de la altura de la cual se desea lanzar la particula:"<<endl;
+    cin>>h;
+    
+    vf1=(sqrt(2*g*h));
+    t=(sqrt((2*h)/2));
+    h1=(pow(e,2)*h);
+    vf2=(sqrt(2*g*h1));
+    v=(e*vf2);
+    
+    cout<<"el valor de la velocidad antes de chocar con la tierra es:"<<vf1<<endl;
+    cout<<"el tiempo de caida es :"<<t<<endl;
+    cout<<"altura alcanzada despues del primer rebote:"<<h1<<endl;
+    cout<<"el valor de la velocidad antes de chocar la segunda vez con la tierra es:"<<vf2<<endl;
+    
+    ht=h;
+    while(ht>0.1){
+        
+        
+        ht=(pow(e,2*n)*h);
+        
+        n++;
+        cout<<"rebotes:"<<n<<endl;
+        cout<<"el valor de la altura es:"<<ht<<endl;
+        
+    
+    }
+}
+    
+    void Friccion()
+    {
+
+        
+        float vo,yo,k,r,ro,cd,vxo,vyo,vx,vy,vm,theta,ax,ay,m;
+         float a,t,x1,vxf,vyf;
+        
+        
+       
+	
+ cout<<"ud se encuentra en movimiento en medio viscoso:"<<endl;
+
+     cout<<"ingrese la velocidad inicial ";
+     cin>>vo;
+     cout<<"ingrese el angulo de disparo ";
+     cin>>a;
+     cout<<"ingrese la altura de la particula ";
+     cin>>yo;
+     cout<<"ingrese el tiempo ";
+     cin>>t;
+     
+        vx=(vo*cos(a*pi/180));
+        vy=(vo*sin(a*pi/180)-g*t);
+         cout<<"la velocidad en x es:"<<vx<<endl;
+          cout<<" la velocidad en y es:"<<vy<<endl;
+        
+        vm=(sqrt(pow(vx,2)+(pow(vy,2))));
+        cout<<"la magnitud de la velocidad es:"<<vm<<endl;
+        theta=atan(vx/vy)*180/pi;
+        cout<<"el angulo theta es:"<<theta<<endl;
+        
+        
+        cout<<"para calcular los valores de la asceleracion en ax y yx,ingrese los siguientes parametros:"<<endl;
+        cout<<"ingrese los de la constante de friccion del medio:"<<endl;
+         cin>>k;
+         cout<<"ingrese los del radio de la particula:"<<endl;
+         cin>>r;
+         cout<<"ingrese los valores de la masa de la particula:"<<endl;
+         cin>>m;
+        
+        ax=-(k*pow(vm,2)*(pow(r,2))/m)*cos(theta*pi/180);
+        ay=-(k*pow(vm,2)*(pow(r,2))/m)*sin(theta*pi/180)-g;
+         cout<<"la asceleración en x es:"<<ax<<endl;
+          cout<<"la asceletación en y es:"<<ay<<endl;
+          
+          
+          x1= (vo*(cos((a*pi/180))*t)+0.5*ax*pow(t,2));
+         double y1=vo*sin((a*pi/180))*t+(0.5*ay*pow(t,2));
+          cout<<"la posicion en x con friccio es:"<<x1<<endl;
+          cout<<"la posicion en y con friccion es:"<<y1<<endl;
+          
+          vxf=vo*cos(a*pi/180)+(ax*t);
+          vyf=vo*sin(a*pi/180)+(ay*t);
+          cout<<"la velocidad con friccion  en x con friccio es:"<<vxf<<endl;
+          cout<<"la velocidad con friccion en y es:"<<vyf<<endl;
+          
+        
+        system ("pause");
+        
+        
+    }
