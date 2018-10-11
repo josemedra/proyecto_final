@@ -1,27 +1,34 @@
 /******************************************************************************
 
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
-
-#include <iostream>
-#include <stdio.h>
+#include <iostream> // declaracion de librerias a utilizar en el programa.
+#include <stdio.h>   // definicion de valores constantes.
 #include <stdlib.h>
 #include<math.h>
 #define pi 3.14159265
 #define g 9.8
 #define e 0.7
-using namespace std;
+using namespace std;  // declaracion de cada una  de las  funciones. 
  void parabolico();
  void colision();
  void rebotes();
  void Friccion();
 
-
-int x;
-
+int x;   // declaracion de variable para guardar la opcion ingresada por teclado.
+         // mediante un cliclo for infinito, desarrollamos la funcion que el usuario selecciona 
+         //el programa a analizar
 
 
 int main() {
@@ -61,9 +68,9 @@ int main() {
 }
 
 /*********************************************************************************************************************/
-void parabolico(){
+void parabolico(){ // primera función----- movimiento parabolico.
 	
-	float vo,a,t,x1,yo,vx,vy;
+	float vo,a,t,x1,yo,vx,vy;             // declaracion de variables locales de la función.
 	
  cout<<"ud se encuentra en movimiento parabolico "<<endl;
 
@@ -76,12 +83,14 @@ void parabolico(){
  cout<<"ingrese el tiempo ";
  cin>>t;
  
- // t=(2*vo*sin((a*pi/180)))/9.8; "ecuacion para hallar el tiempo"
+ // t=(2*vo*sin((a*pi/180)))/9.8; "ecuacion para hallar el tiempo" ecuaciones para encontar el tiempo 
+    // en el cual la particula realiza todo el movimiento.
   //double y1=vo*sin((a*pi/180))*tam-0.5*9.8*tam*tam;
+ 
   cout<<"las diferentes posiciones en el tiempo son:"<<endl;
   float x=t;
-  t=0;
-  for(int i=0;i<=x;i++){
+  t=0;                                                   // ecuaciones para encontrar:
+  for(int i=0;i<=x;i++){                                 // posiciones y velocidades.
   x1= (vo*(cos((a*pi/180))*t));
  float y1=vo*sin((a*pi/180))*t-0.5*9.8*t*t;
  vx=vo*cos(a*pi/180);
@@ -109,11 +118,11 @@ void parabolico(){
   
 }
 /******************************************************************************************************************************/
-void colision()
+void colision()  // segunda función -- colisiones.
 {
-    float m1,m2,vo1,vo2,vf1,vf2;
+    float m1,m2,vo1,vo2,vf1,vf2;                             // declaracion de variables locales de la función.
 
-	cout<<"usted esta en colision"<<endl;
+	cout<<"usted esta en colision"<<endl;                   // datos para ingresar por teclado:
 	cout<<"ingrese los valores que desea analizar:"<<endl;
 	cout<<"ingrese la masa 1:"<<endl;
 	cin>>m1;
@@ -124,10 +133,10 @@ void colision()
 	cout<<"ingrese los valores de la velociadad inicial de la particula  2:"<<endl;
 	cin>>vo2;
 	
-	if(vo2==0){
+	if(vo2==0){         // condicion para el valor de velocidad:si v2 = 0;
+	                    // realice la siguiente operación.
 	    
-	    
-	    vf1=(m1-m2)/(m1+m2)*vo1;  //+(2*m2/(m1+m2));
+	    vf1=(m1-m2)/(m1+m2)*vo1;  
 	    cout<<"la velocidad final es:"<<vf1<<endl;
 	    
 	    vf2=((2*m1)/(m1+m2))*vo1;
@@ -153,9 +162,9 @@ void colision()
 }
 /********************************************************************************************/
 
-void rebotes()
+void rebotes() // tercer funcion-----rebotes:
 {
-    float m1,h,t,vf1,h1,vf2,h2,v,ht,x;
+    float m1,h,t,vf1,h1,vf2,h2,v,ht,x;    // declaracion de variables locales de la función.
     int n=1;
     cout<<"usted esta en rebotes"<<endl;
     cout<<"ingrese los valores de la masa de la particula:"<<endl;
@@ -163,9 +172,9 @@ void rebotes()
     cout<<"ingrese los valores de la altura de la cual se desea lanzar la particula:"<<endl;
     cin>>h;
     
-    vf1=(sqrt(2*g*h));
-    t=(sqrt((2*h)/2));
-    h1=(pow(e,2)*h);
+    vf1=(sqrt(2*g*h));     // ecuaciones para hallar la velocidad antes del primer choque.
+    t=(sqrt((2*h)/2));    // tiempo.
+    h1=(pow(e,2)*h);      // velocidad antes del segundo choque.
     vf2=(sqrt(2*g*h1));
     v=(e*vf2);
     
@@ -175,8 +184,8 @@ void rebotes()
     cout<<"el valor de la velocidad antes de chocar la segunda vez con la tierra es:"<<vf2<<endl;
     
     ht=h;
-    while(ht>0.1){
-        
+    while(ht>0.1){    // para encontrar un resultado de cada uno de los choques se hace un ciclo while
+                      // hasta que la variable h =0;
         
         ht=(pow(e,2*n)*h);
         
@@ -193,14 +202,14 @@ void rebotes()
 
         
         float vo,yo,k,r,ro,cd,vxo,vyo,vx,vy,vm,theta,ax,ay,m;
-         float a,t,x1,vxf,vyf;
+        float a,t,x1,vxf,vyf;            // declaracion de variables locales de la función.
         
         
        
 	
  cout<<"ud se encuentra en movimiento en medio viscoso:"<<endl;
 
-     cout<<"ingrese la velocidad inicial ";
+     cout<<"ingrese la velocidad inicial ";     // opciones ingresadas por teclado.
      cin>>vo;
      cout<<"ingrese el angulo de disparo ";
      cin>>a;
@@ -209,41 +218,61 @@ void rebotes()
      cout<<"ingrese el tiempo ";
      cin>>t;
      
-        vx=(vo*cos(a*pi/180));
+     
+        cout<<"para calcular los valores de la asceleracion en ax y yx,ingrese los siguientes parametros:"<<endl;
+        cout<<"ingrese los de la constante de friccion del medio:"<<endl;
+         cin>>k;
+         cout<<"ingrese los del radio de la particula:"<<endl;   // opciones ingresadas por teclado.
+         cin>>r;
+         cout<<"ingrese los valores de la masa de la particula:"<<endl;
+         cin>>m;
+     
+     float x=t;           
+           t=0;                   
+           for(int i=0;i<=x;i++){
+        vx=(vo*cos(a*pi/180));            // formulas para encontrar velocidad,vx y vy:
         vy=(vo*sin(a*pi/180)-g*t);
-         cout<<"la velocidad en x es:"<<vx<<endl;
-          cout<<" la velocidad en y es:"<<vy<<endl;
+         //cout<<"la velocidad en x es:"<<vx<<endl;
+          //cout<<" la velocidad en y es:"<<vy<<endl;
         
-        vm=(sqrt(pow(vx,2)+(pow(vy,2))));
+        vm=(sqrt(pow(vx,2)+(pow(vy,2))));             // formulas magnitud de la velocidad y angulo.
         cout<<"la magnitud de la velocidad es:"<<vm<<endl;
         theta=atan(vx/vy)*180/pi;
         cout<<"el angulo theta es:"<<theta<<endl;
         
         
-        cout<<"para calcular los valores de la asceleracion en ax y yx,ingrese los siguientes parametros:"<<endl;
-        cout<<"ingrese los de la constante de friccion del medio:"<<endl;
-         cin>>k;
-         cout<<"ingrese los del radio de la particula:"<<endl;
-         cin>>r;
-         cout<<"ingrese los valores de la masa de la particula:"<<endl;
-         cin>>m;
         
-        ax=-(k*pow(vm,2)*(pow(r,2))/m)*cos(theta*pi/180);
-        ay=-(k*pow(vm,2)*(pow(r,2))/m)*sin(theta*pi/180)-g;
+        
+        ax=-(k*pow(vm,2)*(pow(r,2))/m)*cos(theta*pi/180);  // formulas asceleracion en eje x y eje y.
+        ay=-(k*pow(vm,2)*(pow(r,2))/m)*(sin(theta*pi/180)-g);
+        
          cout<<"la asceleración en x es:"<<ax<<endl;
-          cout<<"la asceletación en y es:"<<ay<<endl;
+         cout<<"la asceletación en y es:"<<ay<<endl;
+         
+           
+          
+          x1= (vo*(cos((a*pi/180))*t)+0.5*ax*pow(t,2)); //incluimos las asceleraciones en la formula de posicion
+          double y1=yo+vo*sin((a*pi/180))*t+(0.5*ay*pow(t,2));
+          
+         // se muestra cada uno de los valores en un periodo de tiempo de 1 segundo,
+          // inicia desde 0 seg, hasta llegar al  tiempo que ingreso el usuario.
+         
+          cout<<"en el  tiempo"<<t<<endl;
+          cout<<"la posicion alcanzada por proyectil el el tiempo t="<<t<<" es "<<x1<<endl;
+          cout<<"la posicion alcanzada en el eje y por el proyectil en el tiempo t="<<t<<" es "<<y1<<endl;
           
           
-          x1= (vo*(cos((a*pi/180))*t)+0.5*ax*pow(t,2));
-         double y1=vo*sin((a*pi/180))*t+(0.5*ay*pow(t,2));
-          cout<<"la posicion en x con friccio es:"<<x1<<endl;
-          cout<<"la posicion en y con friccion es:"<<y1<<endl;
-          
+          t++;
+           }
           vxf=vo*cos(a*pi/180)+(ax*t);
           vyf=vo*sin(a*pi/180)+(ay*t);
           cout<<"la velocidad con friccion  en x con friccio es:"<<vxf<<endl;
           cout<<"la velocidad con friccion en y es:"<<vyf<<endl;
           
+          
+  
+  
+    
         
         system ("pause");
         
