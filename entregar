@@ -133,9 +133,6 @@ void colision()  // segunda función -- colisiones.
 	    cout<<"la velocidad final de la particula 1 es:"<<vf1<<endl;
 	    cout<<"la velocidad final de las particula 2  es:"<<vf2<<endl;
 	    
-	    
-	    
-	    
 	}
 	
 	system ("pause");
@@ -162,6 +159,7 @@ void rebotes() // tercer funcion-----rebotes:
     cout<<"el tiempo de caida es :"<<t<<endl;
     cout<<"altura alcanzada despues del primer rebote:"<<h1<<endl;
     cout<<"el valor de la velocidad antes de chocar la segunda vez con la tierra es:"<<vf2<<endl;
+    cout<<endl;
     
     ht=h;
     while(ht>0.1){    // para encontrar un resultado de cada uno de los choques se hace un ciclo while
@@ -169,11 +167,12 @@ void rebotes() // tercer funcion-----rebotes:
         
         ht=(pow(e,2*n)*h);
         
-        n++;
+        
         cout<<"rebotes:"<<n<<endl;
         cout<<"el valor de la altura es:"<<ht<<endl;
+        cout<<endl;
+        n++;
         
-    
     }
 }
     
